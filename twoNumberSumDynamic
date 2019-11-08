@@ -1,0 +1,33 @@
+import java.util.*;
+class Program {
+  public static int[] twoNumberSum(int[] array, int targetSum) {
+    // Write your code here.
+		Map<Integer, Integer> trackingIndex = new HashMap<Integer,Integer>();
+		int[] sortedResultArry = new int[2];
+		int fv,sv,subVal = 0;
+		
+		for(int i=0; i<array.length;i++){
+			subVal = targetSum - array[i];
+			if(trackingIndex.containsKey(subVal)){
+				fv= array[i];
+				sv= array[trackingIndex.get(subVal)];
+				if(sv > fv){
+					sortedResultArry[0] = fv;
+					sortedResultArry[1] = sv;
+				} else{
+					sortedResultArry[0]= sv;
+					sortedResultArry[1]=fv;
+					
+				}
+				return sortedResultArry;
+			} else{
+				trackingIndex.put(array[i], i);
+			}
+		}
+		
+		return new int[0];
+		
+		
+		
+  }
+}
