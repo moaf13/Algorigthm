@@ -1,0 +1,25 @@
+import java.util.*;
+class Program {
+  public static int[] twoNumberSum(int[] array, int targetSum) {
+    // Write your code here.
+		
+		int[] sortedResult = new int[2];
+		
+		for(int i=0; i<array.length; i++){
+			for(int b=i+1; b<array.length;b++){
+				if(targetSum == array[b]+array[i]){
+					if(array[b]> array[i]){
+						sortedResult[0] = array[i];
+						sortedResult[1] = array[b];
+					} else{
+						sortedResult[0] = array[b];
+						sortedResult[1] = array[i];
+					}
+					return sortedResult;
+				}
+				
+			}
+		}
+		return new int[0];
+  }
+}
